@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/lab_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="运动秒表"
+        android:textColor="@color/mainText"
+        android:textSize="20sp"></TextView>
+
+    <TextView
+        android:id="@+id/lab_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/lab_title"
+        android:layout_marginRight="15dp"
+        android:text="状态：进行中"
+        android:textColor="@color/desText"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/lab_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/lab_title"
+        android:layout_toRightOf="@+id/lab_title"
+        android:text="时长 02:00" />
+
+    <Button
+        android:id="@+id/btn_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@null"
+        android:text="编辑" />
+
+    <Button
+        android:id="@+id/btn_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/btn_edit"
+        android:layout_toEndOf="@+id/btn_edit"
+        android:layout_toRightOf="@+id/btn_edit"
+        android:background="@null"
+        android:text="删除" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/lab_status"
+        android:layout_alignRight="@+id/lab_status"
+        android:layout_alignTop="@+id/lab_time"
+        app:srcCompat="@drawable/start" />
+
+</RelativeLayout>
