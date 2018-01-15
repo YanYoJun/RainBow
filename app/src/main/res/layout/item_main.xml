@@ -2,8 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="160dp"
-    android:background="@color/white">
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:minHeight="120dp">
 
     <TextView
         android:id="@+id/lab_title"
@@ -33,8 +34,9 @@
         android:id="@+id/lab_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        android:layout_toEndOf="@+id/lab_title"
+        android:layout_marginLeft="40dp"
         android:layout_toRightOf="@+id/lab_title"
         android:text="时长 02:00" />
 
@@ -48,13 +50,23 @@
         android:background="@null"
         android:text="编辑" />
 
+    <ImageView
+        android:id="@+id/img_divide"
+        android:layout_width="1dp"
+        android:layout_height="30dp"
+        android:paddingBottom="18dp"
+        android:layout_toRightOf="@id/btn_edit"
+        android:layout_alignParentBottom="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/line_divding_listview" />
+
     <Button
         android:id="@+id/btn_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/btn_edit"
+        android:layout_alignParentBottom="true"
         android:layout_toEndOf="@+id/btn_edit"
-        android:layout_toRightOf="@+id/btn_edit"
+        android:layout_toRightOf="@id/img_divide"
         android:background="@null"
         android:text="删除" />
 
@@ -64,7 +76,8 @@
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/lab_status"
         android:layout_alignRight="@+id/lab_status"
-        android:layout_alignTop="@+id/lab_time"
+        android:layout_below="@id/lab_status"
+        android:layout_marginTop="40dp"
         app:srcCompat="@drawable/start" />
 
 </RelativeLayout>

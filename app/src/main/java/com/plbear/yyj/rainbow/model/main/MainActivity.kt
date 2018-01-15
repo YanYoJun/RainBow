@@ -50,7 +50,7 @@ class MainActivity : BaseActivity() {
      * click the button on title
      */
     fun onClick_more(v: View) {
-        var window = PopupWindow(this)
+        var window = PopupWindow(this,null)
         var layout = LayoutInflater.from(this).inflate(R.layout.window_main_pop, null)
         window.contentView = layout
         window.width = ViewGroup.LayoutParams.WRAP_CONTENT

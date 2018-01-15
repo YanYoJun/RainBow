@@ -14,16 +14,16 @@
         app:contentInsetStart="0dp">
 
         <RelativeLayout
-            android:background="@color/orange"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/orange">
 
             <TextView
                 android:id="@+id/lab_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
                 android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
                 android:layout_marginLeft="20dp"
                 android:text="彩虹秒表"
                 android:textColor="@color/white"
@@ -36,15 +36,18 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:background="@drawable/btn_back_press_bg"
-                android:paddingLeft="16dp"
                 android:onClick="onClick_more"
+                android:paddingLeft="16dp"
                 android:paddingRight="12dp"
                 android:src="@drawable/more" />
         </RelativeLayout>
     </android.support.v7.widget.Toolbar>
+
     <ListView
         android:id="@+id/listview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></ListView>
+        android:layout_height="match_parent"
+        android:divider="@drawable/divider_main_list_item"
+        android:dividerHeight="1dp"></ListView>
 
 </LinearLayout>
