@@ -17,9 +17,3 @@ class Contant {
         val COLUMN_DATA_BEAN = "data_bean"
     }
 }
-
-//projectMap.put("_id", "_id")
-//projectMap.put("title", "title")
-//projectMap.put("status", "status")
-//projectMap.put("time", "time")
-//projectMap.put("data_bean", "data_bean")

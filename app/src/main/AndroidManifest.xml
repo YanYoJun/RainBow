@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".activity.SplashActivity"
+        <activity
+            android:name=".activity.SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,12 +20,18 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".model.main.activity.MainActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity android:name=".model.main.activity.AddActivity"
-            android:screenOrientation="portrait">
-        </activity>
+        <activity
+            android:name=".model.main.activity.MainActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".model.main.activity.AddActivity"
+            android:screenOrientation="portrait"></activity>
+
+        <provider
+            android:name=".storage.DBProvider"
+            android:authorities="com.plbear.yyj.rainbow"
+            android:exported="false"
+            android:multiprocess="true"></provider>
     </application>
 
 </manifest>
