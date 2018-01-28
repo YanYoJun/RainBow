@@ -1,15 +1,15 @@
-package com.plbear.yyj.rainbow.model.main
+package com.plbear.yyj.rainbow.model.main.activity
 
+import android.content.Intent
 import android.graphics.drawable.ColorDrawable
-import android.hardware.camera2.TotalCaptureResult
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ListView
 import android.widget.PopupWindow
-import com.plbear.yyj.rainbow.Data.DataBean
-import com.plbear.yyj.rainbow.Data.TotalDataBean
+import com.plbear.yyj.rainbow.data.DataBean
+import com.plbear.yyj.rainbow.data.TotalDataBean
 import com.plbear.yyj.rainbow.R
 import com.plbear.yyj.rainbow.activity.BaseActivity
 import com.plbear.yyj.rainbow.model.main.adapter.MainListAdapter
@@ -50,7 +50,7 @@ class MainActivity : BaseActivity() {
      * click the button on title
      */
     fun onClick_more(v: View) {
-        var window = PopupWindow(this,null)
+        var window = PopupWindow(this, null)
         var layout = LayoutInflater.from(this).inflate(R.layout.window_main_pop, null)
         window.contentView = layout
         window.width = ViewGroup.LayoutParams.WRAP_CONTENT
@@ -70,7 +70,19 @@ class MainActivity : BaseActivity() {
 
         listview.setOnItemClickListener(object : AdapterView.OnItemClickListener {
             override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                //TODO
+                when (id) {
+                    0L -> {
+                        var i = Intent(this@MainActivity, AddActivity::class.java)
+                        startActivity(i)
+                    }
+                    else -> {
+                        //TODO
+                    }
+                }
+
+                if(window.isShowing){
+                    window.dismiss()
+                }
             }
         })
         window.showAsDropDown(btn_more)

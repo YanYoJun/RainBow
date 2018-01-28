@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.AsyncTask
 import com.plbear.yyj.rainbow.R
 import com.plbear.yyj.rainbow.Utils.AppManager
-import com.plbear.yyj.rainbow.model.main.MainActivity
+import com.plbear.yyj.rainbow.model.main.activity.MainActivity
 
 /**
  * Created by yanyongjun on 2018/1/1.

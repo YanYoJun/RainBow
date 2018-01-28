@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.Button
 import android.widget.TextView
-import com.plbear.yyj.rainbow.Data.TotalDataBean
+import com.plbear.yyj.rainbow.data.TotalDataBean
 import com.plbear.yyj.rainbow.R
 
 /**

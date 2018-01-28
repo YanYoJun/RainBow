@@ -47,7 +47,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="@null"
+        android:background="@drawable/btn_back_press_bg"
         android:text="编辑" />
 
     <ImageView
@@ -67,7 +67,7 @@
         android:layout_alignParentBottom="true"
         android:layout_toEndOf="@+id/btn_edit"
         android:layout_toRightOf="@id/img_divide"
-        android:background="@null"
+        android:background="@drawable/btn_back_press_bg"
         android:text="删除" />
 
     <ImageView

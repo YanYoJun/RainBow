@@ -9,10 +9,21 @@
     <color name="back_btn_press_bg">#44000000</color>
     <color name="msg_item_press_bg">#eeeeee</color>
     <color name="trans">#00000000</color>
-    <color name="orange">#ff550d</color>
+
 
     <color name="mainText">#222222</color>
     <color name="desText">#999999</color>
     <color name="hitText">#cccccc</color>
     <color name="lineColor">#eeeeee</color>
+
+    <color name="red">#da1e1e</color>
+    <color name="orange">#ff550d</color>
+    <color name="yellow">#fefe03</color>
+    <color name="green">#06ea06</color>
+    <color name="cyan_blue">#00FFFF</color>
+    <color name="blue">#252dbf</color>
+    <color name="purple">#8B00FF</color>
+
+    <color name="orange_pressed">#d44407</color>
+
 </resources>

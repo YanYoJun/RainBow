@@ -1,4 +1,4 @@
-package com.plbear.yyj.rainbow.Data
+package com.plbear.yyj.rainbow.data
 
 /**
  * Created by yanyongjun on 2018/1/13.
