@@ -61,17 +61,17 @@ class DBProvider : ContentProvider() {
     }
 
     override fun onCreate(): Boolean {
-        mResolver = App.getAppContext().contentResolver
-        mDBHelper = DBHelper(App.getAppContext())
+        mResolver = context.contentResolver
+        mDBHelper = DBHelper(context)
         return false
     }
 
     override fun update(uri: Uri?, values: ContentValues?, selection: String?, selectionArgs: Array<out String>?): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return 0
     }
 
     override fun delete(uri: Uri?, selection: String?, selectionArgs: Array<out String>?): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return 0
     }
 
     override fun getType(uri: Uri?): String? {

@@ -41,15 +41,15 @@
 
     <EditText
         android:id="@+id/edit_time"
-        android:layout_width="wrap_content"
+        android:layout_width="30dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:background="@null"
         android:ems="10"
-        android:hint="请输入市场"
-        android:inputType="textPersonName"
-        android:text="时长：2分10秒"
+        android:gravity="right"
+        android:inputType="number"
+        android:text="10"
         android:textColor="@color/desText"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/edit_name"
@@ -81,4 +81,15 @@
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="秒"
+        android:textColor="@color/desText"
+        app:layout_constraintStart_toEndOf="@+id/edit_time"
+        app:layout_constraintTop_toBottomOf="@+id/edit_name" />
 </android.support.constraint.ConstraintLayout>

@@ -3,7 +3,10 @@ package com.plbear.yyj.rainbow.model.main.adapter
 import android.content.Context
 import android.icu.lang.UCharacter.GraphemeClusterBreak.V
 import android.text.Editable
+import android.text.TextUtils
 import android.text.TextWatcher
+import android.text.format.DateUtils
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,13 +15,17 @@ import android.widget.Button
 import android.widget.EditText
 import com.plbear.yyj.rainbow.data.DataBean
 import com.plbear.yyj.rainbow.R
-import com.plbear.yyj.rainbow.Utils.TimeUtils
+import com.plbear.yyj.rainbow.Utils.ToastUtils
 import java.util.*
 
 /**
  * Created by yanyongjun on 2018/1/27.
  */
 class AddAdapter(context: Context, data: ArrayList<DataBean>) : BaseAdapter() {
+    companion object {
+        val TAG = "AddAdapter"
+    }
+
     private var mContext = context
     private var mDatas = data
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View? {
@@ -29,57 +36,37 @@ class AddAdapter(context: Context, data: ArrayList<DataBean>) : BaseAdapter() {
         var edit_name = v?.findViewById<EditText>(R.id.edit_name)
         var edit_time = v?.findViewById<EditText>(R.id.edit_time)
         var edit_des = v?.findViewById<EditText>(R.id.edit_des)
-        if (position != mDatas.size) {
-            var btn_save = v?.findViewById<Button>(R.id.btn_add_new)
-            btn_save?.visibility = View.INVISIBLE
-            var bean = DataBean(edit_name?.text.toString(), edit_time?.text.toString().toLong(), edit_des?.text.toString())
-            btn_save?.setOnClickListener {
-                mDatas.add(bean)
-                this@AddAdapter.notifyDataSetChanged()
+        var btn_add_new = v?.findViewById<Button>(R.id.btn_add_new)
+        Log.e(TAG, "yanlog postion:$position size:${mDatas.size}")
+        if (position >= mDatas.size) {
+            Log.e(TAG, "yanlog postion >= mDatas.size")
+            //reset edittext
+            edit_name?.setText("abc")
+            edit_time?.setText("10")
+            edit_des?.setText("cde")
+
+            btn_add_new?.visibility = View.VISIBLE
+            btn_add_new?.setOnClickListener {
+                var title = edit_name?.text.toString()
+                var des = edit_des?.text.toString()
+                var time = edit_time?.text.toString()
+                if (checkData(title, des, time)) {
+                    var bean = DataBean(title, time.toLong(), des)
+                    Log.e(TAG, "add $bean")
+                    mDatas.add(bean)
+                    this@AddAdapter.notifyDataSetChanged()
+                }
             }
-            mDatas.add(bean)
-            notifyDataSetChanged()
         } else {
+            btn_add_new?.visibility = View.INVISIBLE
             var data = mDatas[position]
             edit_name?.setText(data.title)
-            edit_time?.setText(TimeUtils.Companion.format_yyyy_MM_dd_HH_mm_ss.format(Date(data.time)))
+            edit_time?.setText("" + data.time)
             edit_des?.setText(data.content)
-
-            edit_name?.addTextChangedListener(object:TextWatcher{
-                override fun afterTextChanged(s: Editable?) {
-                }
-
-                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                }
-
-                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                    data.title = s.toString()
-                }
-            })
-
-            edit_time?.addTextChangedListener(object:TextWatcher{
-                override fun afterTextChanged(s: Editable?) {
-                }
-
-                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                }
-
-                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                    data.time = TimeUtils.format_yyyy_MM_dd_HH_mm_ss.parse(s.toString()).time
-                }
-            })
-
-            edit_des?.addTextChangedListener(object:TextWatcher{
-                override fun afterTextChanged(s: Editable?) {
-                }
-
-                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                }
-
-                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                    data.content = s.toString()
-                }
-            })
+            edit_name?.isFocusable = false
+            edit_time?.isFocusable = false
+            edit_time?.isFocusable = false
+            Log.e(TAG, "$position : $data")
         }
 
         return v
@@ -95,5 +82,19 @@ class AddAdapter(context: Context, data: ArrayList<DataBean>) : BaseAdapter() {
 
     override fun getCount(): Int {
         return mDatas.size + 1
+    }
+
+    fun checkData(title: String, des: String, time: String): Boolean {
+        if (TextUtils.isEmpty(title) || TextUtils.isEmpty(des) || TextUtils.isEmpty(time)) {
+            ToastUtils.show("有字段为空")
+            return false
+        }
+        try {
+            time.toLong()
+        } catch (e: Exception) {
+            ToastUtils.show("请输入数字")
+            return false
+        }
+        return true
     }
 }
