@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/RainBow.iml" filepath="$PROJECT_DIR$/RainBow.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/RainBow.iml" filepath="$PROJECT_DIR$/.idea/RainBow.iml" />
+      <module fileurl="file://F:\13.project\02.SmartSite2\03.code_new\RainBow\RainBow.iml" filepath="F:\13.project\02.SmartSite2\03.code_new\RainBow\RainBow.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

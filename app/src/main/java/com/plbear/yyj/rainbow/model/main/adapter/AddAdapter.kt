@@ -16,6 +16,7 @@ import android.widget.EditText
 import com.plbear.yyj.rainbow.data.DataBean
 import com.plbear.yyj.rainbow.R
 import com.plbear.yyj.rainbow.Utils.ToastUtils
+import com.plbear.yyj.rainbow.Utils.Utils
 import java.util.*
 
 /**
@@ -39,12 +40,13 @@ class AddAdapter(context: Context, data: ArrayList<DataBean>) : BaseAdapter() {
         var btn_add_new = v?.findViewById<Button>(R.id.btn_add_new)
         Log.e(TAG, "yanlog postion:$position size:${mDatas.size}")
         if (position >= mDatas.size) {
-            Log.e(TAG, "yanlog postion >= mDatas.size")
-            //reset edittext
-            edit_name?.setText("abc")
-            edit_time?.setText("10")
-            edit_des?.setText("cde")
-
+            //this part is the last item
+            edit_name?.setText("")
+            edit_time?.setText("")
+            edit_des?.setText("")
+            Utils.setEditTextEnabled(edit_des!!, true)
+            Utils.setEditTextEnabled(edit_time!!, true)
+            Utils.setEditTextEnabled(edit_name!!, true)
             btn_add_new?.visibility = View.VISIBLE
             btn_add_new?.setOnClickListener {
                 var title = edit_name?.text.toString()
@@ -58,14 +60,14 @@ class AddAdapter(context: Context, data: ArrayList<DataBean>) : BaseAdapter() {
                 }
             }
         } else {
+            Utils.setEditTextEnabled(edit_name!!, false)
+            Utils.setEditTextEnabled(edit_des!!, false)
+            Utils.setEditTextEnabled(edit_time!!, false)
             btn_add_new?.visibility = View.INVISIBLE
             var data = mDatas[position]
             edit_name?.setText(data.title)
             edit_time?.setText("" + data.time)
             edit_des?.setText(data.content)
-            edit_name?.isFocusable = false
-            edit_time?.isFocusable = false
-            edit_time?.isFocusable = false
             Log.e(TAG, "$position : $data")
         }
 
